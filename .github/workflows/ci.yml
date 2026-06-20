@@ -1,0 +1,31 @@
+name: CI
+
+on:
+    pull_request:
+      branches: [ main, master ]
+
+jobs:
+  runs-test:
+    name: 'Run Tests'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: 'recursive'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cashe: 'pip'
+
+      - name: Install Python dependecies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest -v -s
