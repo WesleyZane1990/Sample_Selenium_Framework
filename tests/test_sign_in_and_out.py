@@ -14,15 +14,15 @@ def test_sign_in(browser):
 
     assert homepage.is_app_logo_visible()
 
-# def test_sign_out(browser):
-#
-#     homepage = LoginPage(browser).login(get_user_name(), get_password())
-#     time.sleep(5)
-#
-#     assert homepage.is_app_logo_visible()
-#
-#     login_page = HomePage(browser).sign_out()
-#     time.sleep(5)
-#
-#     assert login_page.get_username_field() == ""
-#     assert login_page.get_password_field() == ""
+def test_sign_out(browser):
+
+    homepage = LoginPage(browser).login(get_user_name(), get_password())
+    time.sleep(5)
+
+    assert homepage.is_app_logo_visible()
+
+    login_page = HomePage(browser).sign_out()
+    time.sleep(5)
+
+    assert login_page.get_username_field() == ""
+    assert login_page.get_password_field() == ""
