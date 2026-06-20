@@ -10,7 +10,6 @@ def browser():
     get_browser()
 
     options = webdriver.ChromeOptions()
-    # options.add_argument("--headless=new")
     for option in get_options():
         options.add_argument(option)
     service = Service(ChromeDriverManager().install())
