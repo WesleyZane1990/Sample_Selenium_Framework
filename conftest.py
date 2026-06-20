@@ -4,14 +4,13 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-from common.project_utils import get_browser,get_options, get_url
-
+from common.project_utils import get_options, get_browser, get_url
 
 @pytest.fixture(scope="function")
 def browser():
     get_browser()
 
-    options = webdriver.ChromeOptions()
+    options=webdriver.ChromeOptions()
     for option in get_options():
         options.add_argument(option)
     service = Service(ChromeDriverManager().install())
