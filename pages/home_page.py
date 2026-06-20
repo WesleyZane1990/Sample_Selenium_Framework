@@ -10,7 +10,9 @@ class HomePage(BasePage):
     PASSWORD_FIELD = (By.XPATH, "//*[@id='password']")
 
     def is_app_logo_visible(self):
+        self.driver.save_screenshot("./screenshots/app_logo.png")
         return self.wait3.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='app_logo']"))).is_displayed()
+
 
     def show_dropdown_menu(self):
         menu_icon = self.wait3.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='react-burger-menu-btn']")))

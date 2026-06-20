@@ -1,7 +1,5 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 
 from common.project_utils import get_browser, get_options, get_url
 
@@ -12,10 +10,9 @@ def browser():
     options = webdriver.ChromeOptions()
     for option in get_options():
         options.add_argument(option)
-    service = Service(ChromeDriverManager().install())
     print("Browser is opening")
 
-    driver=webdriver.Chrome(service=service, options=options)
+    driver=webdriver.Chrome(options=options)
     driver.implicitly_wait(5)
 
     print("Getting Page")

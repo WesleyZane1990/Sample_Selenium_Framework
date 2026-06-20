@@ -5,8 +5,6 @@ from common.project_utils import get_user_name, get_password
 import os
 import time
 
-URL =os.getenv("DESIGNATION_PAGE")
-
 def test_sign_in(browser):
 
     homepage = LoginPage(browser).login(get_user_name(), get_password())
