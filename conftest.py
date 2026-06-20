@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
-from common.project_utils import get_browser, get_url, get_options
+from common.project_utils import get_browser,get_options, get_url
 
 
 @pytest.fixture(scope="function")
