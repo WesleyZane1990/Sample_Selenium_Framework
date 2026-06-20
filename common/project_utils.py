@@ -33,12 +33,12 @@ def get_url() -> str:
 
     return base_url if base_url.endswith("/") else f"{base_url}/"
 
-# def get_options() -> list[str]:
-#      options = os.getenv("BROWSER_OPTIONS_CHROME")
-#      if not options:
-#          raise RuntimeError("Set BROWSER_OPTIONS_CHROME")
-#
-#      return [option.strip() for option in options.split(";") if option.strip()]
+def get_options() -> list[str]:
+     options = os.getenv("BROWSER_OPTIONS_CHROME")
+     if not options:
+         raise RuntimeError("Set BROWSER_OPTIONS_CHROME")
+
+     return [option.strip() for option in options.split(";") if option.strip()]
 
 
 def get_browser() -> str:
