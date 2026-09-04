@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import  expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from pages.base_page import BasePage
 from pages.home_page import HomePage
@@ -27,6 +28,9 @@ class LoginPage(BasePage):
 
     def get_password_field(self):
         return self.driver.find_element(*self.PASSWORD_FIELD).get_attribute("value")
+
+    def is_error_message_visible(self):
+        return self.wait3.until(EC.visibility_of_element_located(self.ERROR_MESSAGE)).is_displayed()
 
     def get_error_message(self):
         return self.wait3.until(EC.visibility_of_element_located(self.ERROR_MESSAGE)).text
