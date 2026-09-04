@@ -2,7 +2,7 @@ from selenium.common import StaleElementReferenceException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import  expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from pages.base_page import BasePage
 
 class HomePage(BasePage):
@@ -10,7 +10,7 @@ class HomePage(BasePage):
     PASSWORD_FIELD = (By.XPATH, "//*[@id='password']")
 
     def is_app_logo_visible(self):
-        self.driver.save_screenshot("./screenshots/app_logo.png")
+        self.driver.get_screenshot_as_file("./screenshots/app_logo.png")
         return self.wait3.until(EC.visibility_of_element_located((By.XPATH, "//div[@class='app_logo']"))).is_displayed()
 
 
@@ -47,4 +47,4 @@ class HomePage(BasePage):
         return self.wait3.until(EC.visibility_of_element_located(self.USERNAME_FIELD)).get_attribute("value")
 
     def get_password_field(self):
-        return self.driver.find_element(*self.PASSWORD_FIELD).get_attribute("value")
+        return (self.driver.find_element(*self.PASSWORD_FIELD).get_attribute("value"))
